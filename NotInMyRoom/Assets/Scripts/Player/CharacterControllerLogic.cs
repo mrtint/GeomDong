@@ -152,6 +152,7 @@ public class CharacterControllerLogic : MonoBehaviour
             transInfo = animator.GetAnimatorTransitionInfo(0);
             Jump();
             Move();
+            Attack();
             // Debug.Log("x = " + leftX + " / " + "y = " + leftY);
             charAngle = 0f;
             direction = 0f;   
@@ -337,12 +338,14 @@ public class CharacterControllerLogic : MonoBehaviour
             switch (attackButton.buttonState)
             {
                 case EasyButton.ButtonState.Press:
+                    animator.SetBool("Attack", true);
                     break;
                 case EasyButton.ButtonState.Down: 
                     break;
                 case EasyButton.ButtonState.Up:
                     break;
                 case EasyButton.ButtonState.None:
+                    animator.SetBool("Attack", false);
                     break;
             }
         } else
