@@ -300,7 +300,10 @@ public class CharacterControllerLogic : MonoBehaviour
         {
             leftX = joystick.JoystickAxis.x;
             leftY = joystick.JoystickAxis.y;
-        } else
+        }
+
+        // 조이스틱 입력이 없다면 키보드로..
+        if (leftX == 0 && leftY == 0)
         {
             leftX = Input.GetAxis("Horizontal");
             leftY = Input.GetAxis("Vertical");          
@@ -325,6 +328,7 @@ public class CharacterControllerLogic : MonoBehaviour
                     animator.SetBool("Jump", false);
                     break;
             }
+
         } else
         {
             Debug.LogWarning("Please Mapping.. Button!");
@@ -333,7 +337,7 @@ public class CharacterControllerLogic : MonoBehaviour
 
     public void Attack()
     {
-        if (attackButton)
+        if (attackButton || Input.GetButton("Jump"))
         {
             switch (attackButton.buttonState)
             {
