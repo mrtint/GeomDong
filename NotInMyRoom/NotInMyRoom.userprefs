@@ -1,9 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Camera\ThirdPersonCamera.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Player\CharacterControllerLogic.cs">
     <Files>
-      <File FileName="Assets\Scripts\Player\CharacterControllerLogic.cs" Line="341" Column="54" />
-      <File FileName="Assets\Scripts\Camera\ThirdPersonCamera.cs" Line="171" Column="36" />
+      <File FileName="Assets\Scripts\Player\CharacterControllerLogic.cs" Line="346" Column="14" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

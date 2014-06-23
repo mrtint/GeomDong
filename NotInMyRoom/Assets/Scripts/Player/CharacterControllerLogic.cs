@@ -69,6 +69,9 @@ public class CharacterControllerLogic : MonoBehaviour
     [SerializeField]
     private EasyButton
         jumpButton;
+    [SerializeField]
+    private GameObject
+        attackPosition;
     
     // Private global only
     private float leftX = 0f;
@@ -337,16 +340,18 @@ public class CharacterControllerLogic : MonoBehaviour
 
     public void Attack()
     {
-        if (attackButton || Input.GetButton("Jump"))
+        if (attackButton)
         {
             switch (attackButton.buttonState)
             {
                 case EasyButton.ButtonState.Press:
+                    testAttackRange(this.transform);
+                    break;
+                case EasyButton.ButtonState.Down:
                     animator.SetBool("Attack", true);
                     break;
-                case EasyButton.ButtonState.Down: 
-                    break;
                 case EasyButton.ButtonState.Up:
+                    animator.SetBool("Attack", false);
                     break;
                 case EasyButton.ButtonState.None:
                     animator.SetBool("Attack", false);
@@ -356,6 +361,12 @@ public class CharacterControllerLogic : MonoBehaviour
         {
             Debug.LogWarning("Please Mapping.. Button!");
         }
+    }
+
+    private void testAttackRange(Transform root)
+    {
+        Vector3 rootDirection = root.forward;
+        Debug.DrawRay(attackPosition.transform.position, rootDirection, Color.yellow);
     }
     #endregion Action Methods
 }
