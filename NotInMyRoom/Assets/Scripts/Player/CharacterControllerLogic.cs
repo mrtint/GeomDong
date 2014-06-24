@@ -365,8 +365,17 @@ public class CharacterControllerLogic : MonoBehaviour
 
     private void testAttackRange(Transform root)
     {
+        RaycastHit hitObject;
         Vector3 rootDirection = root.forward;
-        Debug.DrawRay(attackPosition.transform.position, rootDirection, Color.yellow);
+        Debug.DrawRay(attackPosition.transform.position, root.forward, Color.red);
+        Debug.DrawRay(attackPosition.transform.position, root.right, Color.black);
+        Debug.DrawRay(attackPosition.transform.position, root.right * -1.5f, Color.cyan);
+        if(Physics.Raycast(attackPosition.transform.position, rootDirection, out hitObject, .5f))
+        {
+            Debug.DrawRay(attackPosition.transform.position, root.right, Color.black);
+            hitObject.rigidbody.AddForce(root.right * -1f * 10, ForceMode.VelocityChange);
+            // hitObject.rigidbody.AddForce( * 100);
+        }
     }
     #endregion Action Methods
 }
